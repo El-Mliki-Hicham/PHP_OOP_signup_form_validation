@@ -9,7 +9,7 @@ $isSuccess = true;
 $isUpload = false;
 if(empty($name)){
 $nameError = 'This field can not be empty';
-$isSuccess = false;
+// $isSuccess = false;
 }
 if(empty($email)){
 $emailError = 'This field can not be empty';
@@ -38,14 +38,14 @@ function Validateinput($data){
 	<title>Document</title>
 </head>
 <body>
-<form action="">
+<form action="" method="post">
 	
-	name:<input type="text" name="name">
-	<span class='error'><?php echo $nameError; ?></span>
+	name:<input type="text"  pattern="[a-zA-Z0-9]+" required name="name">
+	<span class='error'><?php  if(isset($nameError)) { echo $nameError; }?></span>
 	email : <input type="email" name="email" id="">
-	<span class='error'><?php echo $emailError; ?></span>
+	<span class='error'><?php if(isset($emailError)) {echo $emailError; } ?></span>
 	password :<input type="password" name="password">
-	<span class='error'><?php echo $passwordError; ?></span>
+	<span class='error'><?php if(isset($passwordError)) {echo $passwordError; } ?></span>
 	<input type="submit" value="btn">
 </form>
 </body>
